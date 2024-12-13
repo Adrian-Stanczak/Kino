@@ -9,6 +9,7 @@ def main():
             case 3 : remove_reservation(seats)
             case 4 : modify_reservation(seats)
             case 5 : check_availbility(seats)
+            case 6 : add_multiple_reservations(seats)
             case 10 : break
     
     
@@ -75,6 +76,20 @@ def check_availbility(seats:list):
             print('Enter correct seat numbers!')
 
         print(result)
+
+
+def add_multiple_reservations(seats:list):
+    seat_numbers = list(map(int, input('Enter some seats you wanna reservate: ').split()))
+    name = str(input('Enter your name: '))
+    for seat_number in seat_numbers:
+        if seat_number >= 1 and seat_number <= 10:
+            if seats[seat_number] == None:
+                seats[seat_number] = name
+            else:
+                print('Enter correct seat number!')
+                break
+        
+    print(seats)
     
 main()
 
