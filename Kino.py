@@ -14,7 +14,9 @@ def main():
             case 4 : modify_reservation(seats)
             case 5 : check_availbility(seats)
             case 6 : add_multiple_reservations(seats)
-            case 10 : break
+            case 7 : add_multiple_reservations(seats)
+            case 8 : cancell_all_reservations(seats)
+            case 9 : break
     
     
 
@@ -95,7 +97,6 @@ def add_multiple_reservations(seats:list):
         
     print(seats)
 
-
 def save_seats_to_file(seats):
 
     with open(file_path, 'w')as file:
@@ -104,6 +105,16 @@ def save_seats_to_file(seats):
 def load_seats_to_file(seats):
     pass
 
+def cancell_all_reservations(seats:list):
+    name = str(input('Enter your name: '))
+
+    for i, seat in enumerate(seats):
+        for seat in seats:
+            if seat == name:
+                seats[i] = None
+
+    print(seats)
+>>>>>>> additional_feature
 main()
 
 
