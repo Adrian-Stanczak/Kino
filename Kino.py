@@ -1,6 +1,6 @@
 import json
 
-file_path = 'data/kino.json'
+file_path = "data/kino.json"
 
 seats = [None]*11
 
@@ -101,11 +101,15 @@ def add_multiple_reservations(seats:list):
 
 def save_seats_to_file(seats):
 
-    with open(file_path, 'w')as file:
-        json.dump(seats, file, indent=4)
+    with open(file_path, 'w', encoding='utf-8') as file:
+        json.dump(seats, file)
 
 def load_seats_to_file(seats):
-    pass
+    
+    with open(file_path, 'r') as file:
+        load = json.load(file)
+    
+    print(load)
 
 def cancell_all_reservations(seats:list):
     name = str(input('Enter your name: '))
