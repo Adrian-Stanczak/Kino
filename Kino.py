@@ -1,3 +1,7 @@
+import json
+
+file_path = "data/kino.json"
+
 seats = [None]*11
 
 def main():
@@ -12,7 +16,9 @@ def main():
             case 6 : add_multiple_reservations(seats)
             case 7 : add_multiple_reservations(seats)
             case 8 : cancell_all_reservations(seats)
-            case 9 : break
+            case 9 : save_seats_to_file(seats)
+            case 10 : load_seats_to_file(seats)
+            case 11 : break
     
     
 
@@ -93,6 +99,18 @@ def add_multiple_reservations(seats:list):
         
     print(seats)
 
+def save_seats_to_file(seats):
+
+    with open(file_path, 'w', encoding='utf-8') as file:
+        json.dump(seats, file)
+
+def load_seats_to_file(seats):
+    
+    with open(file_path, 'r') as file:
+        load = json.load(file)
+    
+    print(load)
+
 def cancell_all_reservations(seats:list):
     name = str(input('Enter your name: '))
 
@@ -102,6 +120,7 @@ def cancell_all_reservations(seats:list):
                 seats[i] = None
 
     print(seats)
+
 main()
 
 
