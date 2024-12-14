@@ -16,7 +16,9 @@ def main():
             case 6 : add_multiple_reservations(seats)
             case 7 : add_multiple_reservations(seats)
             case 8 : cancell_all_reservations(seats)
-            case 9 : break
+            case 9 : save_seats_to_file(seats)
+            case 10 : load_seats_to_file(seats)
+            case 11 : break
     
     
 
@@ -114,7 +116,7 @@ def cancell_all_reservations(seats:list):
                 seats[i] = None
 
     print(seats)
->>>>>>> additional_feature
+
 main()
 
 
